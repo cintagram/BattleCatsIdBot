@@ -15,12 +15,12 @@ class MyClient(discord.Client):
   async def on_ready(self):
     await self.wait_until_ready()
     await tree.sync()
-    print(f"{self.user} 에 로그인하였습니다!")
+    print(f"Logged in as {self.user} !")
 intents= discord.Intents.all()
 client = MyClient(intents=intents)
 tree = app_commands.CommandTree(client)
     
-@tree.command(name="냥코검색", description="냥코 아이디검색")
+@tree.command(name="search", description="bc catid search")
 async def CatSearchCommand(interaction: Interaction, usr_input: str):
 	catdb = open("catdb.csv", "r", encoding="utf-8").read().split("\n")
 	line_len = len(catdb)
@@ -33,12 +33,12 @@ async def CatSearchCommand(interaction: Interaction, usr_input: str):
 		else:
 			pass
 	if len(ctx) == 0:
-		embed_body = "검색결과가 없습니다"
+		embed_body = "No results"
 	else:
 		embed_body = ""
 		for k in range(len(ctx)):
 			embed_body += ctx[k]
-	embed = discord.Embed(title="검색결과", description=embed_body)
+	embed = discord.Embed(title="Results", description=embed_body)
 	await interaction.response.send_message(embed=embed)
 			
 
