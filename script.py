@@ -1,5 +1,8 @@
 import os
 
+#NOTICE!!!!!!!
+#Change Unit_Explanation_ko.csv in line 20 to your game version's resLocal format (dont include number)
+
 if __name__ == "__main__":
 	filenames=os.listdir("units")
 	filenamesnum=len(filenames)
