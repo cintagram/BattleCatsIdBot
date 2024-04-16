@@ -30,7 +30,7 @@ if __name__ == "__main__":
 			p = k.split("\n")[0].split("|")[0]
 			if p == None or p == "":
 				p = "None"
-			whhe = (int(filenames[i].strip("Unit_Explanation_.csv").strip("en").strip("ko").strip("tw").strip("ja")) - 1)
+			whhe = (int(filenames[i].strip("Unit_Explanation_.csv").strip("en").strip("ko").strip("tw").strip("ja").strip("_")) - 1)
 			open("catdb.csv", "a+", encoding="utf-8").write((p+","+str(whhe)+"\n"))
 
 	print("finished")
